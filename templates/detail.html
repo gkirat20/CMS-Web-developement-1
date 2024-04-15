@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>{{ content.title }}</h2>
+<p>{{ content.body }}</p>
+<a href="{{ url_for('index') }}" class="btn btn-link">Back to List</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Content List</h1>
+<a href="{{ url_for('manage') }}" class="btn btn-primary">Manage Content</a>
+<a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+<div class="list-group mt-3">
+    {% for content in contents %}
+    <a href="{{ url_for('content_detail', content_id=content.id) }}" class="list-group-item list-group-item-action">
+        {{ content.title }}
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

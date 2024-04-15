@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Manage Content</h2>
+<form method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="body" class="form-label">Content</label>
+        <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Content</button>
+</form>
+<div class="list-group mt-3">
+    {% for content in contents %}
+    <div class="list-group-item">
+        <h5>{{ content.title }}</h5>
+        <p>{{ content.body }}</p>
+        <a href="{{ url_for('edit', content_id=content.id) }}" class="btn btn-sm btn-secondary">Edit</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
